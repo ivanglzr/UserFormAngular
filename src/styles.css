@@ -1,1 +1,123 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: hsla(217, 100%, 50%, 1);
+  background: linear-gradient(
+    45deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
+}
+
+#form-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  text-align: center;
+}
+
+form {
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 34px 17px rgba(255, 255, 255, 0.55);
+  -moz-box-shadow: 0px 0px 34px 17px rgba(255, 255, 255, 0.55);
+  box-shadow: 0px 0px 34px 17px rgba(255, 255, 255, 0.55);
+}
+
+#title {
+  margin-top: 10px;
+  font-size: 35px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 10px;
+}
+
+.form-group label {
+  margin-top: 15px;
+  margin-bottom: 7px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 70%;
+  height: 30px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 2px;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.5s;
+}
+
+.form-group input::placeholder {
+  font-size: 15px;
+}
+
+.form-group input:focus {
+  box-shadow: 0 0 5px #444 inset;
+  outline: none;
+}
+
+#btn-submit {
+  background: linear-gradient(
+    45deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    45deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    hsla(217, 100%, 50%, 1) 0%,
+    hsla(186, 100%, 69%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0061FF", endColorstr="#60EFFF", GradientType=1 );
+  margin-top: 15px;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 17.5px;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+#btn-submit:hover {
+  padding: 10px 60px;
+}
