@@ -39,12 +39,7 @@
       required
     />
   </div>
-  <button
-    type="submit"
-    id="btn-submit"
-    (click)="sendData()"
-    [disabled]="userForm.invalid"
-  >
+  <button type="submit" id="btn-submit" [disabled]="userForm.invalid">
     ENVIAR
   </button>
 </form>

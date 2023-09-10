@@ -13,10 +13,13 @@ export class UserService {
   }
 
   save(user: User): Observable<any> {
+    // Se convierte a string el usuario para enviarlo en una peticion post
     let params = JSON.stringify(user);
 
+    // Se configuran los headers
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
+    // Se retorna la peticion
     return this._http.post(this.url + 'save', params, {
       headers: headers,
     });

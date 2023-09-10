@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 })
 export class UserFormComponent {
   public userData: User;
-  public send: boolean;
 
   constructor(public _userService: UserService) {
     this.userData = {
@@ -20,20 +19,26 @@ export class UserFormComponent {
       email: '',
       password: '',
     };
-    this.send = false;
   }
 
   sendData() {
-    if (!this.send) {
-      console.log(this.userData);
-      this._userService.save(this.userData).subscribe(
-        (response) => console.log(response),
-        (err) => console.log(err)
-      );
-      Swal.fire('Enviado', 'Formulario enviado correctamente', 'success');
-      this.send = true;
-    } else {
-      console.log('Ya enviaste el formulario');
-    }
+    // Se llama al servicio y se suscribe al observable pasandole como parametros las funciones correspondientes
+    this._userService.save(this.userData).subscribe({
+      next: (v) => {
+        console.log(v);
+        Swal.fire('Enviado', 'Formulario enviado correctamente', 'success');
+      },
+      error: (e) => {
+        console.error(e);
+
+        let errMessage = 'Ha habido un problema';
+
+        // Si el error trae un mensaje se muestra en la alerta
+        if (e.error.message) errMessage = e.error.message;
+
+        Swal.fire('Error', errMessage, 'error');
+      },
+      complete: () => console.info('complete'),
+    });
   }
 }
