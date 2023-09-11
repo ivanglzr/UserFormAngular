@@ -1,0 +1,10 @@
+<div class="center">
+  <h1>Hola {{ name }}</h1>
+
+  <div class="buttons">
+    <button class="btn">
+      <a class="btn-a" [routerLink]="['/edit-user', this.id]">Editar Usuario</a>
+    </button>
+    <button (click)="deleteUser()" class="btn">Eliminar Usuario</button>
+  </div>
+</div>

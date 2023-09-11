@@ -23,7 +23,7 @@ export class UserFormComponent {
 
   sendData() {
     // Se llama al servicio y se suscribe al observable pasandole como parametros las funciones correspondientes
-    this._userService.save(this.userData).subscribe({
+    this._userService.register(this.userData).subscribe({
       next: (v) => {
         console.log(v);
         Swal.fire('Enviado', 'Formulario enviado correctamente', 'success');

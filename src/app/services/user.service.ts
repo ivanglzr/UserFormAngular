@@ -12,7 +12,7 @@ export class UserService {
     this.url = Global.url;
   }
 
-  save(user: User): Observable<any> {
+  register(user: User): Observable<any> {
     // Se convierte a string el usuario para enviarlo en una peticion post
     let params = JSON.stringify(user);
 
@@ -20,7 +20,33 @@ export class UserService {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     // Se retorna la peticion
-    return this._http.post(this.url + 'save', params, {
+    return this._http.post(this.url + 'register', params, {
+      headers: headers,
+    });
+  }
+
+  login(email: string, password: string): Observable<any> {
+    return this._http.get(this.url + `login/${email}/${password}`);
+  }
+
+  getUser(id: string): Observable<any> {
+    return this._http.get(this.url + `get-user/${id}`);
+  }
+
+  updateUser(id: string, newUser: User): Observable<any> {
+    let params = JSON.stringify(newUser);
+
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this._http.put(this.url + `update-user/${id}`, params, {
+      headers: headers,
+    });
+  }
+
+  deleteUser(id: string): Observable<any> {
+    let headers = new HttpHeaders().set('Content-type', 'application/json');
+
+    return this._http.delete(this.url + `delete-user/${id}`, {
       headers: headers,
     });
   }

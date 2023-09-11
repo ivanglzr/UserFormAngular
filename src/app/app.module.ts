@@ -2,15 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserService } from './services/user.service';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
+import { EditFormComponent } from './components/edit-form/edit-form.component';
 
 @NgModule({
-  declarations: [AppComponent, UserFormComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
-  providers: [UserService],
+  declarations: [AppComponent, UserFormComponent, LoginFormComponent, UserPageComponent, EditFormComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, routing],
+  providers: [UserService, appRoutingProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

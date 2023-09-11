@@ -1,0 +1,48 @@
+<h1 id="title">Editar Usuario</h1>
+<form #userForm="ngForm" (ngSubmit)="sendData()">
+  <div class="form-group">
+    <label for="name">Nombre</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      value="{{ this.userData.name }}"
+      #name="ngModel"
+      [(ngModel)]="userData.name"
+      placeholder="Nombre"
+      autocomplete="name"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      value="{{ this.userData.email }}"
+      #email="ngModel"
+      [(ngModel)]="userData.email"
+      placeholder="Email"
+      autocomplete="email"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Contraseña</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      value="{{ this.userData.password }}"
+      #password="ngModel"
+      [(ngModel)]="userData.password"
+      placeholder="Contraseña"
+      autocomplete="off"
+      required
+    />
+  </div>
+  <button type="submit" id="btn-submit" [disabled]="userForm.invalid">
+    ENVIAR
+  </button>
+</form>
