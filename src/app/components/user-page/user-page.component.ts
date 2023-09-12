@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 
 import { UserService } from 'src/app/services/user.service';
@@ -18,13 +18,16 @@ interface userRes {
 export class UserPageComponent {
   public name: string;
   public id: string;
+  public err: boolean;
 
   constructor(
+    private _router: Router,
     private _route: ActivatedRoute,
     private _userService: UserService
   ) {
     this.name = '';
     this.id = '';
+    this.err = false;
   }
 
   ngOnInit() {
@@ -38,6 +41,7 @@ export class UserPageComponent {
         },
         error: (err) => {
           console.log(err);
+          this.err = true;
         },
         complete: () => console.log('complete'),
       });
@@ -48,6 +52,12 @@ export class UserPageComponent {
     this._userService.deleteUser(this.id).subscribe({
       next: (v) => {
         console.log(v);
+        Swal.fire(
+          'Usuario eliminado',
+          'El usuario fue eliminado correctamente',
+          'success'
+        );
+        this._router.navigate(['/register']);
       },
       error: (err) => {
         console.log(err);

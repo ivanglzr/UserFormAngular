@@ -1,4 +1,4 @@
-<div class="center">
+<div class="center" *ngIf="!this.err">
   <h1>Hola {{ name }}</h1>
 
   <div class="buttons">
@@ -6,5 +6,17 @@
       <a class="btn-a" [routerLink]="['/edit-user', this.id]">Editar Usuario</a>
     </button>
     <button (click)="deleteUser()" class="btn">Eliminar Usuario</button>
+  </div>
+</div>
+
+<div class="center" *ngIf="this.err">
+  <h1>El usuario no existe</h1>
+  <div class="buttons">
+    <button class="btn">
+      <a [routerLink]="['/register']" class="btn-a">Registrarse</a>
+    </button>
+    <button class="btn">
+      <a [routerLink]="['/login']" class="btn-a">Iniciar sesion</a>
+    </button>
   </div>
 </div>

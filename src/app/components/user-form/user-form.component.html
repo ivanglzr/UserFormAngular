@@ -38,8 +38,15 @@
       autocomplete="off"
       required
     />
+    <span>{{ errorTxt }}</span>
   </div>
   <button type="submit" id="btn-submit" [disabled]="userForm.invalid">
     ENVIAR
   </button>
 </form>
+
+<div class="buttons">
+  <button class="btn">
+    <a [routerLink]="['/login']" class="btn-a">Iniciar sesion</a>
+  </button>
+</div>
